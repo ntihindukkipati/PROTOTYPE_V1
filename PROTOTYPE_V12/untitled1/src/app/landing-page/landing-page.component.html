@@ -1,0 +1,106 @@
+<!--<html>
+<head>
+  <meta charset="utf-8">
+  <title>MAIN PAGE</title>>
+</head>
+<body>-->
+<mat-tab-group mat-align-tabs="left">
+  <mat-tab label="PRACTICE">
+    <form  class="type-width">
+      <mat-form-field class="example-full-width wheat border-radius">
+        <input  matInput placeholder="NAME" >
+      </mat-form-field><br>
+      <mat-form-field class="example-full-width wheat border-radius">
+        <input  matInput placeholder="ADDRESS" >
+      </mat-form-field><br>
+      <mat-form-field class="example-full-width wheat border-radius">
+        <input  matInput placeholder="PHONE" >
+      </mat-form-field><br>
+      <mat-form-field class="example-full-width wheat border-radius">
+        <input  matInput placeholder="FAX" >
+      </mat-form-field><br>
+      <mat-form-field class="example-full-width wheat border-radius">
+        <input  matInput placeholder="EMAIL" >
+      </mat-form-field><br>
+      <mat-form-field class="example-full-width wheat border-radius">
+        <input  matInput placeholder="WEBSITE" >
+      </mat-form-field><br>
+      <mat-form-field class="example-full-width wheat border-radius">
+        <input  matInput placeholder="TIME ZONE" >
+      </mat-form-field><br>
+      <mat-form-field class="example-full-width wheat border-radius">
+        <input  matInput placeholder="TAX ID" >
+      </mat-form-field><br>
+      <mat-form-field class="example-full-width wheat border-radius">
+        <input  matInput placeholder="NPI" >
+      </mat-form-field><br>
+      <mat-form-field class="example-full-width wheat border-radius">
+        <input  matInput placeholder="OWNER" >
+      </mat-form-field>
+      <div class="button-row">
+        <button type="submit" mat-raised-button class="wheat border-radius">
+          SAVE
+        </button>
+      </div>
+    </form>
+
+
+
+
+  </mat-tab>
+
+
+
+  <mat-tab label="USERS">Content 2</mat-tab>
+
+
+
+
+  <mat-tab label="PROCEDURES">
+
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="code">
+        <th mat-header-cell *matHeaderCellDef> CODE </th>
+        <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef>CATEGORY </th>
+        <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> TYPE </th>
+        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> DESCRIPTION </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-tab>
+
+
+  <mat-tab label="PAYER">
+    <app-payer-page></app-payer-page>
+  </mat-tab>
+
+
+
+</mat-tab-group>
+<!--</body>
+</html>-->
+

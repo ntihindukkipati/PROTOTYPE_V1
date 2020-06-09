@@ -1,0 +1,17 @@
+<div class="form">
+  <form  class="type-width">
+        <mat-form-field class="example-full-width wheat border-radius">
+      <input  matInput placeholder="USER NAME" >
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      <mat-hint *ngIf="!passwordInput.value">Enter your password</mat-hint>
+    </mat-form-field>
+    <div class="button-row">
+      <button  mat-raised-button class="wheat border-radius" >
+        <a routerLink="/landing"> LOGIN </a>
+      </button>
+    </div>
+  </form>
+</div>
