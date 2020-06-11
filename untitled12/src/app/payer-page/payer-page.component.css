@@ -112,3 +112,19 @@ table {
 mat-cell{
   color: black;
 }
+.lowerclass
+{
+  height: 100%;
+  width: 100%;
+}
+.leftclass{
+  height: 100%;
+  width: 50%;
+  padding-top: 4%;
+}
+.rightclass{
+  height: 100%;
+  width: 50%;
+  margin-top: -39%;
+  float: right;
+}

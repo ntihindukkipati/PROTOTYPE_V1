@@ -59,6 +59,11 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { PayerPageComponent } from './payer-page/payer-page.component';
 import { ProceduresComponent } from './procedures/procedures.component';
 import { PracticeComponent } from './practice/practice.component';
+import { PayerDetailsComponent } from './payer-page/payer-details/payer-details.component';
+import { PayerEAPRComponent } from './payer-page/payer-eapr/payer-eapr.component';
+import { PayerEligibiltyCalimsComponent } from './payer-page/payer-eapr/payer-eligibilty-calims/payer-eligibilty-calims.component';
+import { PayerAppealsComponent } from './payer-page/payer-eapr/payer-appeals/payer-appeals.component';
+import { PayerProviderRelationsComponent } from './payer-page/payer-eapr/payer-provider-relations/payer-provider-relations.component';
 
 const appRoutes: Routes = [
   { path: 'landing', component: LandingPageComponent},
@@ -77,6 +82,11 @@ const appRoutes: Routes = [
     PayerPageComponent,
     ProceduresComponent,
     PracticeComponent,
+    PayerDetailsComponent,
+    PayerEAPRComponent,
+    PayerEligibiltyCalimsComponent,
+    PayerAppealsComponent,
+    PayerProviderRelationsComponent,
 
   ],
   imports: [

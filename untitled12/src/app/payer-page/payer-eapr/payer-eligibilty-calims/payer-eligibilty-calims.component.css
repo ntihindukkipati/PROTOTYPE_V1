@@ -1,0 +1,42 @@
+.E\&C
+{
+  margin-top: 3%;
+}
+.state-margin
+{
+  width: 30%;
+}
+.streetAddress {
+  width: 60%;
+}
+.city
+{
+  right :-15%;
+}
+/*.zipCode{
+  float: left;
+  left: 25%;
+!*  top margin: -41%;*!
+  margin-top: -104%;
+}*/
+/*+
+++++++++++++++++++++++++++++++++++
+.zipCode{
+    float: left;
+    left: 219%;
+    top margin: -41%;
+    margin-top: -104%;
+}
+.phone
+{
+  left: -94%;
+}
+.fax
+{
+  left: -55%;
+}
+.email
+{
+  left: -23%;
+  width: 131%;
+}*/
