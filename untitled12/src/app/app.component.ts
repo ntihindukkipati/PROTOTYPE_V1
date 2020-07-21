@@ -24,6 +24,7 @@ export interface DATA {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
  /* displayedColumns: string[] = ['code', 'category', 'type', 'description'];
   dataSource = new MatTableDataSource(PROCEDURE_DATA);
 

@@ -2,109 +2,130 @@
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
 <div class="upperclass">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-hover">
 
     <!-- Position Column -->
     <ng-container matColumnDef="code">
       <th mat-header-cell *matHeaderCellDef> CODE </th>
       <td mat-cell *matCellDef="let element"> {{element.code}} </td>
     </ng-container>
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="category">
-      <th mat-header-cell *matHeaderCellDef>CATEGORY </th>
-      <td mat-cell *matCellDef="let element"> {{element.category}} </td>
-    </ng-container>
-
     <!-- Weight Column -->
-    <ng-container matColumnDef="type">
-      <th mat-header-cell *matHeaderCellDef> TYPE </th>
-      <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> PROCEDURE NAME </th>
+      <td mat-cell *matCellDef="let element"  > {{element.name}} </td>
     </ng-container>
-
     <!-- Symbol Column -->
     <ng-container matColumnDef="description">
       <th mat-header-cell *matHeaderCellDef> DESCRIPTION </th>
-      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      <td mat-cell *matCellDef="let element" > {{element.description}} </td>
+    </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="ada_code">
+      <th mat-header-cell *matHeaderCellDef> ADA CODE </th>
+      <td mat-cell *matCellDef="let element" > {{element.ada_code}} </td>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="sub_category">
+      <th mat-header-cell *matHeaderCellDef>ADA SUB CATEGORY </th>
+      <td mat-cell *matCellDef="let element" > {{element.sub_category}} </td>
     </ng-container>
 
+
+
+
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row  (click)="onClick(row)" *matRowDef="let row; columns: displayedColumns; "></tr>
 
   </table>
+<!--  <li *ngFor ="let e of PROCEDURE_DATA" >
+{{e.code}}
+  </li>-->
 </div>
 <div class="lowerclass">
-  <div  class="type-width floatLeft">
+  <form [formGroup]="ProcedureForm" (ngSubmit)="onFormSubmit(ProcedureForm.value)" >
+  <div  class="type-width floatLeft" style="margin-left: 1%">
     <div class="first-row">
+
       <div class="full-width">
         <div class="floatLeft">
-          <mat-form-field class="code"> <!--class="example-full-width wheat border-radius"-->
-            <input  matInput placeholder="CODE" >
+          <mat-form-field class="code"> <!--class="example-full-width wheat border-radius" -->
+            <input  matInput placeholder="CODE" formControlName="code" >
           </mat-form-field>
         </div>
         <div class="floatLeft name_margin">
           <mat-form-field class="name">
-            <input  matInput placeholder="NAME" >
+            <input  matInput placeholder="NAME"  formControlName="name" >
           </mat-form-field>
         </div>
         <div class="floatLeft units_margin">
           <mat-form-field class="units">
-            <input  matInput placeholder="UNITS" >
+            <input  matInput placeholder="UNITS"  formControlName="units">
           </mat-form-field>
         </div>
         <div class="custom-control custom-switch floatLeft status_margin">
-          <input type="checkbox" class="custom-control-input" id="switch0">
+          <input type="checkbox" class="custom-control-input" id="switch0"  formControlName="status">
           <label class="custom-control-label" for="switch0">STATUS</label>
         </div>
       </div>
-      <div>
+    <!--    <div class="button-row margin-top-13 floatLeft">
+          <button type="submit" mat-raised-button class="wheat border-radius">
+            SAVE
+          </button>
+        </div>-->
+
+
         <mat-form-field class="description desc-width">
-          <input  matInput placeholder="DESCRIPTION" >
+          <input  matInput placeholder="DESCRIPTION"  formControlName="description"  >
         </mat-form-field>
-      </div>
-      <hr>
+
+
     </div>
-    <div class="code-area">
+
+    <hr>
+    <div class="code-area" >
       <div class="submit-row floatLeft full-width">
-        <div class="custom-control custom-switch floatLeft some-margin">
-          <input type="checkbox" class="custom-control-input" id="switch11">
+        <div class="custom-control custom-switch floatLeft some-margin" >
+          <input type="checkbox" class="custom-control-input"  id="switch11" formControlName="sti" >
           <label class="custom-control-label" for="switch11">SUBMIT TO INSURANCE</label>
         </div>
         <div class="floatLeft name_margin">
           <mat-form-field class="ADACODE">
-            <input  matInput placeholder="ADACODE" >
+            <input  matInput placeholder="ADACODE"  formControlName="ada_code"  >
           </mat-form-field>
         </div>
         <div class="floatLeft name_margin">
           <mat-form-field class="ICDCODE">
-            <input  matInput placeholder="ICD CODE" >
+            <input  matInput placeholder="ICD CODE"    formControlName="icd_code">
           </mat-form-field>
         </div>
       </div>
       <div class="cat-row">
         <div class="floatLeft width-40">
           <mat-form-field class="category width-80">
-            <input  matInput placeholder="CATEGORY" >
+            <input  matInput placeholder="CATEGORY"   formControlName="category" >
           </mat-form-field>
         </div>
         <div class="floatLeft width-40">
           <mat-form-field class="sub category width-80">
-            <input  matInput placeholder="SUB CATEGORY" >
+            <input  matInput placeholder="SUB CATEGORY"   formControlName="sub_category">
           </mat-form-field>
         </div>
       </div>
       <div class="custom-control custom-switch pat-row">
-        <input type="checkbox" class="custom-control-input" id="switch2">
+        <input type="checkbox" class="custom-control-input" id="switch2"  formControlName="IINPB">
         <label class="custom-control-label" for="switch2">INCLUDE IN NEW PATIENT BREAKDOWN</label>
       </div>
       <hr>
+
     </div>
     <div class="recare-div">
       <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="switch3">
+        <input type="checkbox" class="custom-control-input" id="switch3"   formControlName="RMV">
         <label class="custom-control-label" for="switch3">REQUIRES MULTIPLE VISIT</label>
       </div>
-      <div class="table-width floatLeft">
+    </div>
+  <!--<div class="table-width floatLeft">
         <table class="table table-dark table-hover">
           <thead>
           <tr>
@@ -131,10 +152,10 @@
           </tr>
           </tbody>
         </table>
-      </div>
+      </div>-->
 
       <div class="container perfo-para floatLeft">
-        <table class="table table-dark table-hover">
+        <table class="table <!--table-dark--> table-hover">
           <!--<thead>-->
           <tr>
             <th>PERFORMED BY</th>
@@ -144,7 +165,7 @@
           <tr>
             <td>
               <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" id="customCheck0" name="example1">
+                <input type="checkbox" class="custom-control-input" id="customCheck0" name="example1" formControlName="assistant"  >
                 <label class="custom-control-label" for="customCheck0">ASSISTANT</label>
               </div>
             </td>
@@ -152,7 +173,7 @@
           <tr>
             <td>
               <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" id="customCheck1" name="example2">
+                <input type="checkbox" class="custom-control-input" id="customCheck1" name="example2" formControlName="dentist"  >
                 <label class="custom-control-label" for="customCheck1">DENTIST</label>
               </div>
             </td>
@@ -161,7 +182,7 @@
           <tr>
             <td>
               <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" id="customCheck2" name="example3">
+                <input type="checkbox" class="custom-control-input" id="customCheck2" name="example3" formControlName="hygenist"  >
                 <label class="custom-control-label" for="customCheck2">HYGENIST</label>
               </div>
             </td>
@@ -172,32 +193,32 @@
 
       </div>
       <div class="custom-control custom-switch margin-left-60">
-        <input type="checkbox" class="custom-control-input" id="switch4">
+        <input type="checkbox" class="custom-control-input" id="switch4"   formControlName="GLC">
         <label class="custom-control-label" for="switch4">GENERATE LAB CASE</label>
       </div>
       <div class="custom-control custom-switch margin-left-60">
-        <input type="checkbox" class="custom-control-input" id="switch5">
+        <input type="checkbox" class="custom-control-input" id="switch5"   formControlName="RPOFU">
         <label class="custom-control-label" for="switch5">REQUIRES POST -OP FOLLOW UP</label>
       </div>
-      <div class="floatLeft name_margin width-37">
+      <!--<div class="floatLeft name_margin width-37">
         <mat-form-field class="after">
           <input  matInput placeholder="AFTER" >
         </mat-form-field>
       </div>
       <div class="margin-left-60">
         <p>POST-OP DOCUMENT</p>
-      </div>
-      <div class="custom-file mb-3 width-20 margin-left-3">
+      </div>-->
+ <!--     <div class="custom-file mb-3 width-20 margin-left-3">
         <input type="file" class="custom-file-input" id="customFile" name="filename">
         <label class="custom-file-label" for="customFile">Choose file</label>
-      </div>
+      </div>-->
       <div class="custom-control custom-switch margin-left-60">
-        <input type="checkbox" class="custom-control-input" id="switch6">
+        <input type="checkbox" class="custom-control-input" id="switch6"   formControlName="URAC">
         <label class="custom-control-label" for="switch6">UPDATE RECARE AT CHECKOUT</label>
       </div>
     </div>
-  </div>
-  <div class="cost-tab floatRight">
+<!--  </div>-->
+  <!--<div class="cost-tab floatRight">
     <table class="table table-dark table-hover">
       <thead>
       <tr>
@@ -220,7 +241,7 @@
       </tr>
       </tbody>
     </table>
-  </div>
+  </div>-->
 
   <div class="button-row margin-top-13 floatLeft">
     <button type="submit" mat-raised-button class="wheat border-radius">
@@ -232,5 +253,5 @@
       ADD NEW
     </button>
   </div>
-
+  </form>
 </div>

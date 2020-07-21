@@ -1,0 +1,52 @@
+
+
+<mat-toolbar color="deeppurple-amber" style="background-color: #323652">
+  <mat-toolbar-row>
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" color="primary">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+  <!--  <span><img src="./assets/devglan.png"></span>-->
+    <button class="home" (click)="home()"> HOME</button>
+    <button class="home" (click)="home()"> ABOUT </button>
+    <button class="home" (click)="home()"> CONTACT</button>
+    <div class="dropdown" style="position: relative;
+    margin-left:67%;">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >
+        ACCOUNT
+      </button>
+      <div class="dropdown-menu position">
+        <a class="dropdown-item" href="#">LogOut</a>
+        <a class="dropdown-item" href="#">future</a>
+        <a class="dropdown-item" href="#">future</a>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="view">
+<mat-sidenav-container class="example-container" >
+  <mat-sidenav #drawer mode="side" opened role="navigation" style=" background-color: #00000073;">
+    <mat-nav-list>
+      <h1>MENU</h1>
+      <button mat-list-item  class="inner_style" (click)="Landing()">LANDING PAGE</button>
+      <button mat-list-item class="inner_style" (click)="Procedures()">PROCEDURES</button>
+      <button mat-list-item class="inner_style" (click)="Users()">USERS</button>
+      <button mat-list-item class="inner_style" (click)="Payer()">PAYER</button>
+      <button mat-list-item class="inner_style" (click)="NewPatient()">NEW PATIENT FORM</button>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="main_view">
+    <app-home-page *ngIf="home_page == true"></app-home-page>
+   <app-landing-page *ngIf="landing_page == true "></app-landing-page>
+    <app-procedures *ngIf="procedures == true"></app-procedures>
+      <app-users *ngIf="users == true"></app-users>
+      <app-patient-call-in-form *ngIf=" new_patient == true"></app-patient-call-in-form>
+      <app-payer-page *ngIf="payer == true"></app-payer-page>
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+</div>

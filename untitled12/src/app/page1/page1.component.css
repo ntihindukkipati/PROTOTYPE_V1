@@ -1,0 +1,32 @@
+.example-container {
+  height: auto;
+  width: 100%;
+  margin: 10%;
+}
+.view {
+  margin-top: -10%;
+  margin-left: -10%;
+  width: 100%;
+  height: auto;
+}
+
+mat-sidenav
+{
+  transform: none;
+  visibility: visible;
+  width: 20%;
+}
+.home
+{
+  margin-left: 1%;
+  position: relative;
+  background-color: transparent;
+  color: #212529;
+  width: 9%;
+
+  border: none;
+
+}
+button:hover {
+  background-color: white;
+}

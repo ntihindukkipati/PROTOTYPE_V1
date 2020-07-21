@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import {MatTabsModule} from '@angular/material/tabs';
-import {  MatFormFieldModule } from '@angular/material';
+import {MatFormFieldModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import {A11yModule} from '@angular/cdk/a11y';
 import {DragDropModule} from '@angular/cdk/drag-drop';
@@ -37,6 +37,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSidenavModule} from '@angular/material/sidenav';
+/*import {MatDrawer} from '@angular/material';
+import {MatDrawerContainer} from '@angular/material';*/
+import {CustomMaterialModule} from './core/material.module';
+
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
@@ -64,10 +68,22 @@ import { PayerEAPRComponent } from './payer-page/payer-eapr/payer-eapr.component
 import { PayerEligibiltyCalimsComponent } from './payer-page/payer-eapr/payer-eligibilty-calims/payer-eligibilty-calims.component';
 import { PayerAppealsComponent } from './payer-page/payer-eapr/payer-appeals/payer-appeals.component';
 import { PayerProviderRelationsComponent } from './payer-page/payer-eapr/payer-provider-relations/payer-provider-relations.component';
+import { PatientCallInFormComponent } from './patient-call-in-form/patient-call-in-form.component';
+import { Page1Component } from './page1/page1.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { UsersComponent } from './users/users.component';
 
 const appRoutes: Routes = [
+
+  {path: '' , component: LoginPageComponent},
   { path: 'landing', component: LandingPageComponent},
-  {path: '' , component: LoginPageComponent}
+  {path: 'procedures' , component: ProceduresComponent},
+  {path: 'page1',
+    component: Page1Component,
+/*    children : [
+      { path: 'landing', component: LandingPageComponent},
+      {path: 'procedures' , component: ProceduresComponent}
+    ]*/}
 ];
 
 
@@ -87,6 +103,10 @@ const appRoutes: Routes = [
     PayerEligibiltyCalimsComponent,
     PayerAppealsComponent,
     PayerProviderRelationsComponent,
+    PatientCallInFormComponent,
+    Page1Component,
+    HomePageComponent,
+    UsersComponent,
 
   ],
   imports: [
@@ -107,10 +127,12 @@ const appRoutes: Routes = [
     HttpClientModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes),
+    CustomMaterialModule,
+    RouterModule.forRoot(appRoutes ),
   ],
   exports: [
     A11yModule,
+    CustomMaterialModule,
     CdkStepperModule,
     CdkTableModule,
     CdkTreeModule,
@@ -152,7 +174,9 @@ const appRoutes: Routes = [
     MatTreeModule,
     PortalModule,
     ScrollingModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule,
+    BrowserModule
   ],
   entryComponents: [LoginPageComponent],
   providers: [],

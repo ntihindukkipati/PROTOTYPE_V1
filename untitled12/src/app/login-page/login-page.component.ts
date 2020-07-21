@@ -9,7 +9,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-
+  loginForm: FormGroup;
   constructor(public router: Router) { }
     signin: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required ]),
@@ -18,9 +18,9 @@ export class LoginPageComponent implements OnInit {
   hide = true;
   get emailInput() { return this.signin.get('email'); }
   get passwordInput() { return this.signin.get('password'); }
-/*  landing() {
-    this.router.navigate(['/landing']);
-  }*/
+  landing() {
+    this.router.navigate(['/page1']);
+  }
   ngOnInit() {
   }
 
