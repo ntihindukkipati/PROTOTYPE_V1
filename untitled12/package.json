@@ -25,7 +25,7 @@
     "express": "latest",
     "hammerjs": "^2.0.8",
     "http-errors": "latest",
-    "mongoose": "^5.9.20",
+    "mongoose": "^5.13.15",
     "morgan": "^1.10.0",
     "ngx-filter-pipe": "^2.1.2",
     "nodemon": "^2.0.4",
